@@ -1,0 +1,204 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>Lib.Gen.Anarkis.Kcnt.Set</name>
+	<version>200</version>
+	<engineversion>44</engineversion>
+	<description>Kill Counter - set the value for a given race</description>
+	<arguments>
+		<argument index="1" name="plugin.name" type="Var/String" desc="plugin id" />
+		<argument index="2" name="race" type="Var/Race" desc="race" />
+		<argument index="3" name="value" type="Var/Number" desc="set value" />
+	</arguments>
+	<sourcetext>
+		<line linenr="001" indent="">
+			<var>$global.name</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>sprintf</text>
+			<text>:</text>
+			<text> </text>
+			<text>fmt</text>
+			<text>=</text>
+			<text>'anarkis.kcnt.%s'</text>
+			<text>,</text>
+			<text> </text>
+			<var>$plugin.name</var>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="002" indent="">
+			<var>$array</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<var>$global.name</var>
+		</line>
+		<line linenr="003" indent="" interruptable="@">
+			<var>$id</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Lib.Gen.Anarkis.Race.To.Id</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>argument1</text>
+			<text>=</text>
+			<var>$race</var>
+		</line>
+		<line linenr="004" indent="">
+			<var>$array</var>
+			<text>[</text>
+			<var>$id</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$value</var>
+		</line>
+		<line linenr="005" indent="">
+			<text>set</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<var>$global.name</var>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>$array</var>
+		</line>
+		<line linenr="006" indent="" />
+		<line linenr="007" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="Lib.Gen.Anarkis.Kcnt.Set" />
+			<sval type="int" val="44" />
+			<sval type="string" val="Kill Counter - set the value for a given race" />
+			<sval type="int" val="200" />
+			<sval type="int" val="0" />
+			<sval type="array" size="6">
+				<sval type="string" val="plugin.name" />
+				<sval type="string" val="race" />
+				<sval type="string" val="value" />
+				<sval type="string" val="global.name" />
+				<sval type="string" val="array" />
+				<sval type="string" val="id" />
+			</sval>
+			<sval type="array" size="6">
+				<sval type="array" size="14">
+					<sval type="int" val="149" />
+					<sval type="int" val="3" />
+					<sval type="int" val="5" />
+					<sval type="string" val="anarkis.kcnt.%s" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Lib.Gen.Anarkis.Race.To.Id" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="157" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+			</sval>
+			<sval type="array" size="3">
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="string" val="plugin id" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="16" />
+					<sval type="string" val="race" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="10" />
+					<sval type="string" val="set value" />
+				</sval>
+			</sval>
+			<sval type="array" size="1">
+				<sval type="array" size="2">
+					<sval type="int" val="5" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>

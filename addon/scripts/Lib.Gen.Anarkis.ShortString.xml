@@ -1,0 +1,189 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>Lib.Gen.Anarkis.ShortString</name>
+	<version>101</version>
+	<engineversion>44</engineversion>
+	<description>Lib - Reduce String size clean</description>
+	<arguments>
+		<argument index="1" name="string" type="Var/String" desc="string" />
+		<argument index="2" name="max" type="Var/Number" desc="max" />
+	</arguments>
+	<sourcetext>
+		<line linenr="001" indent="">
+			<var>$length</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>length</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<var>$string</var>
+		</line>
+		<line linenr="002" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$length</var>
+			<text> </text>
+			<text>&gt;</text>
+			<text> </text>
+			<var>$max</var>
+		</line>
+		<line linenr="003" indent="&#160;">
+			<var>$length</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$max</var>
+			<text> </text>
+			<text>-</text>
+			<text> </text>
+			<var>3</var>
+		</line>
+		<line linenr="004" indent="&#160;">
+			<var>$string</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>substring</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<var>$string</var>
+			<text> </text>
+			<text>offset</text>
+			<text>=</text>
+			<var>0</var>
+			<text> </text>
+			<text>length</text>
+			<text>=</text>
+			<var>$length</var>
+		</line>
+		<line linenr="005" indent="&#160;">
+			<var>$string</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$string</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<text>'..'</text>
+		</line>
+		<line linenr="006" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="007" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>$string</var>
+		</line>
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="Lib.Gen.Anarkis.ShortString" />
+			<sval type="int" val="44" />
+			<sval type="string" val="Lib - Reduce String size clean" />
+			<sval type="int" val="101" />
+			<sval type="int" val="0" />
+			<sval type="array" size="3">
+				<sval type="string" val="string" />
+				<sval type="string" val="max" />
+				<sval type="string" val="length" />
+			</sval>
+			<sval type="array" size="6">
+				<sval type="array" size="4">
+					<sval type="int" val="1075" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610611453" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="15" />
+					<sval type="int" val="2" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="2" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="2" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3" />
+					<sval type="int" val="15" />
+					<sval type="int" val="12" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="12" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="1077" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="5" />
+					<sval type="string" val=".." />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+				</sval>
+			</sval>
+			<sval type="array" size="2">
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="string" val="string" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="10" />
+					<sval type="string" val="max" />
+				</sval>
+			</sval>
+			<sval type="array" size="1">
+				<sval type="array" size="2">
+					<sval type="int" val="5" />
+					<sval type="int" val="4" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>

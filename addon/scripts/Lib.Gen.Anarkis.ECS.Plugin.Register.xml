@@ -1,0 +1,749 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>Lib.Gen.Anarkis.ECS.Plugin.Register</name>
+	<version>250</version>
+	<engineversion>44</engineversion>
+	<description>ECS - Register a script or plugin with ECS</description>
+	<arguments>
+		<argument index="1" name="setup" type="Value" desc="Setup Array" />
+	</arguments>
+	<sourcetext>
+		<line linenr="001" indent="">
+			<comment>* ===========================================</comment>
+		</line>
+		<line linenr="002" indent="">
+			<comment>* Extended Communication System 2.5</comment>
+		</line>
+		<line linenr="003" indent="">
+			<comment>* ===========================================</comment>
+		</line>
+		<line linenr="004" indent="">
+			<comment>* Use this function to register your plugin or script with ECS, allowing your</comment>
+		</line>
+		<line linenr="005" indent="">
+			<comment>* plugin to use the ECS hotkey and Comms system</comment>
+		</line>
+		<line linenr="006" indent="">
+			<comment>* ===========================================</comment>
+		</line>
+		<line linenr="007" indent="">
+			<comment>* Parameter : SETUP -&gt; Array</comment>
+		</line>
+		<line linenr="008" indent="">
+			<comment>* - 00 : Global variable to check to see if your plugin is enabled (string)</comment>
+		</line>
+		<line linenr="009" indent="">
+			<comment>* - 01 : Script to call when the ECS key is pressed (string)</comment>
+		</line>
+		<line linenr="010" indent="">
+			<comment>* - 02 : Restrict ECS to objects with this local variable set to TRUE (string)</comment>
+		</line>
+		<line linenr="011" indent="">
+			<comment>* - 03 : Restrict ECS to this RACE (var/race)</comment>
+		</line>
+		<line linenr="012" indent="">
+			<comment>* - 04 : Restrict ECS to this Object Class (var/class)</comment>
+		</line>
+		<line linenr="013" indent="">
+			<comment>* - 05 : News Channel (null=off, else max amount of news to store)</comment>
+		</line>
+		<line linenr="014" indent="">
+			<comment>* - 06 : News System Name (string, can be null if not used)</comment>
+		</line>
+		<line linenr="015" indent="">
+			<comment>* Indexes 02, 03, 04, 05 can be null</comment>
+		</line>
+		<line linenr="016" indent="">
+			<comment>* As an example Pirate Guild use the following SETUP array :</comment>
+		</line>
+		<line linenr="017" indent="">
+			<comment>* - 00 : anarkis.pirate.plugin (will check this global)</comment>
+		</line>
+		<line linenr="018" indent="">
+			<comment>* - 01 : anarkis.pirate.comm (if found, it will call this script only...)</comment>
+		</line>
+		<line linenr="019" indent="">
+			<comment>* - 02 : anarkis.pirate (... if this local var is found) </comment>
+		</line>
+		<line linenr="020" indent="">
+			<comment>* - 03 : Pirates (and this is pirate owned object)</comment>
+		</line>
+		<line linenr="021" indent="">
+			<comment>* - 04 : null (we dont care about object class)</comment>
+		</line>
+		<line linenr="022" indent="">
+			<comment>* - 05 : 12 (we want to store 12 most recent news)</comment>
+		</line>
+		<line linenr="023" indent="">
+			<comment>* - 06 : &quot;Pirate Guild BBS&quot;</comment>
+		</line>
+		<line linenr="024" indent="">
+			<comment>* ===========================================</comment>
+		</line>
+		<line linenr="025" indent="">
+			<comment>* Output : </comment>
+		</line>
+		<line linenr="026" indent="">
+			<comment>* - null : Script registration failed</comment>
+		</line>
+		<line linenr="027" indent="">
+			<comment>* - TRUE : Your script has be registered to ECS</comment>
+		</line>
+		<line linenr="028" indent="">
+			<comment>* ===========================================</comment>
+		</line>
+		<line linenr="029" indent="">
+			<comment>* If a same script is re registered, previous config will be overwritten.</comment>
+		</line>
+		<line linenr="030" indent="">
+			<comment>* ===========================================</comment>
+		</line>
+		<line linenr="031" indent="" />
+		<line linenr="032" indent="">
+			<comment>* Check the parameter, quit if error</comment>
+		</line>
+		<line linenr="033" indent="">
+			<text>skip</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<text>is</text>
+			<text> </text>
+			<text>datatype</text>
+			<text>[</text>
+			<var>$setup</var>
+			<text>]</text>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[DATATYPE_ARRAY]</var>
+		</line>
+		<line linenr="034" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="035" indent="">
+			<var>$setup.width</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$setup</var>
+		</line>
+		<line linenr="036" indent="">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$setup.width</var>
+			<text> </text>
+			<text>!=</text>
+			<text> </text>
+			<var>7</var>
+		</line>
+		<line linenr="037" indent="&#160;">
+			<text>resize</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$setup</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<var>7</var>
+		</line>
+		<line linenr="038" indent="" />
+		<line linenr="039" indent="">
+			<comment>* Retrieve ECS configuration</comment>
+		</line>
+		<line linenr="040" indent="">
+			<var>$ecs.setup</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'plugin.ecs.setup'</text>
+		</line>
+		<line linenr="041" indent="">
+			<var>$ecs.installed</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$ecs.setup</var>
+			<text>[</text>
+			<var>1</var>
+			<text>]</text>
+		</line>
+		<line linenr="042" indent="">
+			<var>$ecs.configs</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$ecs.setup</var>
+			<text>[</text>
+			<var>2</var>
+			<text>]</text>
+		</line>
+		<line linenr="043" indent="">
+			<var>$ecs.news</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$ecs.setup</var>
+			<text>[</text>
+			<var>5</var>
+			<text>]</text>
+		</line>
+		<line linenr="044" indent="" />
+		<line linenr="045" indent="">
+			<comment>* Update if setup already found in list</comment>
+		</line>
+		<line linenr="046" indent="">
+			<var>$global</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$setup</var>
+			<text>[</text>
+			<var>0</var>
+			<text>]</text>
+		</line>
+		<line linenr="047" indent="">
+			<text>if</text>
+			<text> </text>
+			<text>find</text>
+			<text> </text>
+			<var>$global</var>
+			<text> </text>
+			<text>in</text>
+			<text> </text>
+			<text>array</text>
+			<text>:</text>
+			<text> </text>
+			<var>$ecs.installed</var>
+		</line>
+		<line linenr="048" indent="&#160;">
+			<var>$index</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>index</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<var>$global</var>
+			<text> </text>
+			<text>in</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$ecs.installed</var>
+			<text> </text>
+			<text>offset</text>
+			<text>=</text>
+			<var>0</var>
+		</line>
+		<line linenr="049" indent="&#160;">
+			<var>$config.to.update</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$ecs.configs</var>
+			<text>[</text>
+			<var>$index</var>
+			<text>]</text>
+		</line>
+		<line linenr="050" indent="&#160;">
+			<text>copy</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$setup</var>
+			<text> </text>
+			<text>index</text>
+			<text> </text>
+			<var>0</var>
+			<text> </text>
+			<text>...</text>
+			<text> </text>
+			<var>6</var>
+			<text> </text>
+			<text>into</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$config.to.update</var>
+			<text> </text>
+			<text>at</text>
+			<text> </text>
+			<text>index</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="051" indent="&#160;" />
+		<line linenr="052" indent="&#160;">
+			<comment>* We add the new plugin (todo: conflict check)</comment>
+		</line>
+		<line linenr="053" indent="">
+			<text>else</text>
+		</line>
+		<line linenr="054" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$global</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$ecs.installed</var>
+		</line>
+		<line linenr="055" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$setup</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$ecs.configs</var>
+		</line>
+		<line linenr="056" indent="&#160;">
+			<var>$my.news</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>alloc</text>
+			<text>:</text>
+			<text> </text>
+			<text>size</text>
+			<text>=</text>
+			<var>0</var>
+		</line>
+		<line linenr="057" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>$my.news</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$ecs.news</var>
+		</line>
+		<line linenr="058" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="059" indent="" />
+		<line linenr="060" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>[TRUE]</var>
+		</line>
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="Lib.Gen.Anarkis.ECS.Plugin.Register" />
+			<sval type="int" val="44" />
+			<sval type="string" val="ECS - Register a script or plugin with ECS" />
+			<sval type="int" val="250" />
+			<sval type="int" val="0" />
+			<sval type="array" size="10">
+				<sval type="string" val="setup" />
+				<sval type="string" val="setup.width" />
+				<sval type="string" val="ecs.setup" />
+				<sval type="string" val="ecs.installed" />
+				<sval type="string" val="ecs.configs" />
+				<sval type="string" val="ecs.news" />
+				<sval type="string" val="global" />
+				<sval type="string" val="index" />
+				<sval type="string" val="config.to.update" />
+				<sval type="string" val="my.news" />
+			</sval>
+			<sval type="array" size="20">
+				<sval type="array" size="6">
+					<sval type="int" val="125" />
+					<sval type="int" val="-536870393" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="20" />
+					<sval type="int" val="21" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610611448" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="7" />
+					<sval type="int" val="15" />
+					<sval type="int" val="1" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="137" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="plugin.ecs.setup" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1406" />
+					<sval type="int" val="-1610608893" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="1083" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="4" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="8" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="11">
+					<sval type="int" val="133" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="19" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="128" />
+					<sval type="int" val="9" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+				</sval>
+			</sval>
+			<sval type="array" size="1">
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="string" val="Setup Array" />
+				</sval>
+			</sval>
+			<sval type="array" size="41">
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="===========================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Extended Communication System 2.5" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="===========================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Use this function to register your plugin or script with ECS, allowing your" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="plugin to use the ECS hotkey and Comms system" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="===========================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Parameter : SETUP -&gt; Array" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- 00 : Global variable to check to see if your plugin is enabled (string)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- 01 : Script to call when the ECS key is pressed (string)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- 02 : Restrict ECS to objects with this local variable set to TRUE (string)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- 03 : Restrict ECS to this RACE (var/race)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- 04 : Restrict ECS to this Object Class (var/class)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- 05 : News Channel (null=off, else max amount of news to store)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- 06 : News System Name (string, can be null if not used)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Indexes 02, 03, 04, 05 can be null" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="As an example Pirate Guild use the following SETUP array :" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- 00 : anarkis.pirate.plugin (will check this global)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- 01 : anarkis.pirate.comm (if found, it will call this script only...)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- 02 : anarkis.pirate (... if this local var is found) " />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- 03 : Pirates (and this is pirate owned object)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- 04 : null (we dont care about object class)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- 05 : 12 (we want to store 12 most recent news)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- 06 : &quot;Pirate Guild BBS&quot;" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="===========================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Output : " />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- null : Script registration failed" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="- TRUE : Your script has be registered to ECS" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="===========================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="If a same script is re registered, previous config will be overwritten." />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="===========================================" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="0" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Check the parameter, quit if error" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="5" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Retrieve ECS configuration" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="9" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Update if setup already found in list" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="14" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="14" />
+					<sval type="int" val="1" />
+					<sval type="string" val="We add the new plugin (todo: conflict check)" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="15" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="19" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="19" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>

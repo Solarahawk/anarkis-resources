@@ -1,0 +1,304 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>Lib.Gen.Anarkis.Wing.ChangeLeader</name>
+	<version>100</version>
+	<engineversion>44</engineversion>
+	<description>Lib - Wing: Change the leader of a wing</description>
+	<arguments />
+	<sourcetext>
+		<line linenr="001" indent="">
+			<comment>* ===========================================</comment>
+		</line>
+		<line linenr="002" indent="">
+			<comment>* Wing : Set a new leader and apply to formation</comment>
+		</line>
+		<line linenr="003" indent="">
+			<comment>* (must be used on wing leader)</comment>
+		</line>
+		<line linenr="004" indent="">
+			<comment>* ===========================================</comment>
+		</line>
+		<line linenr="005" indent="" />
+		<line linenr="006" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>has</text>
+			<text> </text>
+			<text>formation</text>
+			<text> </text>
+			<text>ships</text>
+		</line>
+		<line linenr="007" indent="&#160;">
+			<var>$new.leader</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>select</text>
+			<text> </text>
+			<text>new</text>
+			<text> </text>
+			<text>formation</text>
+			<text> </text>
+			<text>leader</text>
+			<text> </text>
+			<text>by</text>
+			<text>:</text>
+			<text> </text>
+			<text>ship</text>
+			<text> </text>
+			<text>class</text>
+			<text>=</text>
+			<var>[TRUE]</var>
+			<text> </text>
+			<text>strength</text>
+			<text>=</text>
+			<var>[TRUE]</var>
+			<text> </text>
+			<text>min.speed</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+		</line>
+		<line linenr="008" indent="&#160;">
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>give</text>
+			<text> </text>
+			<text>formation</text>
+			<text> </text>
+			<text>leadership</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<var>$new.leader</var>
+		</line>
+		<line linenr="009" indent="&#160;">
+			<var>$cmd.name</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>command</text>
+		</line>
+		<line linenr="010" indent="&#160;">
+			<var>$arg1</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>command</text>
+			<text> </text>
+			<text>target</text>
+		</line>
+		<line linenr="011" indent="&#160;">
+			<var>$arg2</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>command</text>
+			<text> </text>
+			<text>target2</text>
+		</line>
+		<line linenr="012" indent="&#160;">
+			<var>$arg3</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>destination</text>
+		</line>
+		<line linenr="013" indent="&#160;">
+			<text>START</text>
+			<text> </text>
+			<var>$new.leader</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>command</text>
+			<text> </text>
+			<var>$cmd.name</var>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>arg1</text>
+			<text>=</text>
+			<var>$arg1</var>
+			<text>,</text>
+			<text> </text>
+			<text>arg2</text>
+			<text>=</text>
+			<var>$arg2</var>
+			<text>,</text>
+			<text> </text>
+			<text>arg3</text>
+			<text>=</text>
+			<var>$arg3</var>
+			<text>,</text>
+			<text> </text>
+			<text>arg4</text>
+			<text>=</text>
+			<var>null</var>
+		</line>
+		<line linenr="014" indent="&#160;" />
+		<line linenr="015" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="016" indent="" />
+		<line linenr="017" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>$new.leader</var>
+		</line>
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="Lib.Gen.Anarkis.Wing.ChangeLeader" />
+			<sval type="int" val="44" />
+			<sval type="string" val="Lib - Wing: Change the leader of a wing" />
+			<sval type="int" val="100" />
+			<sval type="int" val="0" />
+			<sval type="array" size="5">
+				<sval type="string" val="new.leader" />
+				<sval type="string" val="cmd.name" />
+				<sval type="string" val="arg1" />
+				<sval type="string" val="arg2" />
+				<sval type="string" val="arg3" />
+			</sval>
+			<sval type="array" size="9">
+				<sval type="array" size="4">
+					<sval type="int" val="531" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1610610685" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="530" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="532" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="525" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="527" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="529" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="520" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="514" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+			<sval type="array" size="8">
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="===========================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Wing : Set a new leader and apply to formation" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="(must be used on wing leader)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="===========================================" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="0" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="8" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="8" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="8" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>

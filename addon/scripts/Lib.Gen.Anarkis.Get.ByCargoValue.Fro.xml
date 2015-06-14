@@ -1,0 +1,321 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>Lib.Gen.Anarkis.Get.ByCargoValue.Fro</name>
+	<version>112</version>
+	<engineversion>44</engineversion>
+	<description>Lib - (outdated)</description>
+	<arguments>
+		<argument index="1" name="base.sector" type="Var/Sector" desc="sector" />
+		<argument index="2" name="jump.range" type="Var/Number" desc="jumprange" />
+		<argument index="3" name="mincargo" type="Var/Number" desc="min cargo" />
+		<argument index="4" name="from" type="Var/Ship/Station" desc="from" />
+	</arguments>
+	<sourcetext>
+		<line linenr="001" indent="">
+			<comment>* ============================================</comment>
+		</line>
+		<line linenr="002" indent="">
+			<comment>* LU (Solarahawk): added Phanon to ignore list. Maybe not strictly necessary, should verify later.</comment>
+		</line>
+		<line linenr="003" indent="">
+			<comment>* ============================================</comment>
+		</line>
+		<line linenr="004" indent="" />
+		<line linenr="005" indent="">
+			<var>$class</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>alloc</text>
+			<text>:</text>
+			<text> </text>
+			<text>size</text>
+			<text>=</text>
+			<var>2</var>
+		</line>
+		<line linenr="006" indent="">
+			<var>$class</var>
+			<text>[</text>
+			<var>0</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[TS]</var>
+		</line>
+		<line linenr="007" indent="">
+			<var>$class</var>
+			<text>[</text>
+			<var>1</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[TP]</var>
+		</line>
+		<line linenr="008" indent="&#160;">
+			<var>$rel</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$from</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>relation</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>race</text>
+			<text> </text>
+			<var>[Player]</var>
+		</line>
+		<line linenr="009" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$rel</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[Foe]</var>
+		</line>
+		<line linenr="010" indent="&#160;">
+			<var>$include</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[FALSE]</var>
+		</line>
+		<line linenr="011" indent="">
+			<text>else</text>
+		</line>
+		<line linenr="012" indent="">
+			<var>$include</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[TRUE]</var>
+		</line>
+		<line linenr="013" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="014" indent="" interruptable="@">
+			<var>$array</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Lib.Gen.Anarkis.Get.ByCargoValue.Adv</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>from</text>
+			<text>=</text>
+			<var>$from</var>
+			<text> </text>
+			<text>jump.range</text>
+			<text>=</text>
+			<var>$jump.range</var>
+			<text> </text>
+			<text>mincargo</text>
+			<text>=</text>
+			<var>$mincargo</var>
+			<text> </text>
+			<text>ignore.pirate</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+			<text> </text>
+			<text>ignore.player</text>
+			<text>=</text>
+			<var>$include</var>
+			<text> </text>
+			<text>argument6</text>
+			<text>=</text>
+			<var>[TRUE]</var>
+		</line>
+		<line linenr="015" indent="" />
+		<line linenr="016" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>$array</var>
+		</line>
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="Lib.Gen.Anarkis.Get.ByCargoValue.Fro" />
+			<sval type="int" val="44" />
+			<sval type="string" val="Lib - (outdated)" />
+			<sval type="int" val="112" />
+			<sval type="int" val="0" />
+			<sval type="array" size="8">
+				<sval type="string" val="base.sector" />
+				<sval type="string" val="jump.range" />
+				<sval type="string" val="mincargo" />
+				<sval type="string" val="from" />
+				<sval type="string" val="class" />
+				<sval type="string" val="rel" />
+				<sval type="string" val="include" />
+				<sval type="string" val="array" />
+			</sval>
+			<sval type="array" size="10">
+				<sval type="array" size="4">
+					<sval type="int" val="128" />
+					<sval type="int" val="4" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2031" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2030" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="724" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="5" />
+					<sval type="int" val="10" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610610941" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+					<sval type="int" val="14" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="6" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="8" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="6" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="18">
+					<sval type="int" val="102" />
+					<sval type="string" val="Lib.Gen.Anarkis.Get.ByCargoValue.Adv" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+				</sval>
+			</sval>
+			<sval type="array" size="4">
+				<sval type="array" size="2">
+					<sval type="int" val="14" />
+					<sval type="string" val="sector" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="10" />
+					<sval type="string" val="jumprange" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="10" />
+					<sval type="string" val="min cargo" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="22" />
+					<sval type="string" val="from" />
+				</sval>
+			</sval>
+			<sval type="array" size="7">
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="============================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="LU (Solarahawk): added Phanon to ignore list. Maybe not strictly necessary, should verify later." />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="============================================" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="0" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="7" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="8" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>

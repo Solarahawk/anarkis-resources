@@ -1,0 +1,337 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>Lib.Gen.Anarkis.Create.Marine</name>
+	<version>100</version>
+	<engineversion>44</engineversion>
+	<description>Lib - Create a marine</description>
+	<arguments>
+		<argument index="1" name="ship" type="Var/Ship" desc="ship" />
+		<argument index="2" name="race" type="Var/Race" desc="race" />
+	</arguments>
+	<sourcetext>
+		<line linenr="001" indent="">
+			<text>skip</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$ship</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>exists</text>
+		</line>
+		<line linenr="002" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="003" indent="" />
+		<line linenr="004" indent="" interruptable="@">
+			<var>$pass</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Lib.Gen.Anarkis.Create.Passenger</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>ship</text>
+			<text>=</text>
+			<var>$ship</var>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>$race</var>
+		</line>
+		<line linenr="005" indent="">
+			<var>$pass</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>train</text>
+			<text> </text>
+			<text>passenger</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>marine</text>
+		</line>
+		<line linenr="006" indent="" />
+		<line linenr="007" indent="">
+			<var>$skill</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>random</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>between</text>
+			<text> </text>
+			<var>20</var>
+			<text> </text>
+			<text>and</text>
+			<text> </text>
+			<var>79</var>
+		</line>
+		<line linenr="008" indent="">
+			<var>$pass</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<text>marine</text>
+			<text> </text>
+			<text>skill</text>
+			<text>:</text>
+			<text> </text>
+			<text>fighting</text>
+			<text>=</text>
+			<var>$skill</var>
+		</line>
+		<line linenr="009" indent="">
+			<var>$skill</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>random</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>between</text>
+			<text> </text>
+			<var>20</var>
+			<text> </text>
+			<text>and</text>
+			<text> </text>
+			<var>79</var>
+		</line>
+		<line linenr="010" indent="">
+			<var>$pass</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<text>marine</text>
+			<text> </text>
+			<text>skill</text>
+			<text>:</text>
+			<text> </text>
+			<text>hacking</text>
+			<text>=</text>
+			<var>$skill</var>
+		</line>
+		<line linenr="011" indent="">
+			<var>$skill</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>random</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>between</text>
+			<text> </text>
+			<var>20</var>
+			<text> </text>
+			<text>and</text>
+			<text> </text>
+			<var>79</var>
+		</line>
+		<line linenr="012" indent="">
+			<var>$pass</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<text>marine</text>
+			<text> </text>
+			<text>skill</text>
+			<text>:</text>
+			<text> </text>
+			<text>mechanical</text>
+			<text>=</text>
+			<var>$skill</var>
+		</line>
+		<line linenr="013" indent="">
+			<var>$skill</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>random</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>between</text>
+			<text> </text>
+			<var>20</var>
+			<text> </text>
+			<text>and</text>
+			<text> </text>
+			<var>79</var>
+		</line>
+		<line linenr="014" indent="">
+			<var>$ship</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<text>marine</text>
+			<text> </text>
+			<text>skill</text>
+			<text>:</text>
+			<text> </text>
+			<text>engineering</text>
+			<text>=</text>
+			<var>$skill</var>
+		</line>
+		<line linenr="015" indent="" />
+		<line linenr="016" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>$pass</var>
+		</line>
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="Lib.Gen.Anarkis.Create.Marine" />
+			<sval type="int" val="44" />
+			<sval type="string" val="Lib - Create a marine" />
+			<sval type="int" val="100" />
+			<sval type="int" val="0" />
+			<sval type="array" size="4">
+				<sval type="string" val="ship" />
+				<sval type="string" val="race" />
+				<sval type="string" val="pass" />
+				<sval type="string" val="skill" />
+			</sval>
+			<sval type="array" size="13">
+				<sval type="array" size="4">
+					<sval type="int" val="706" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-536870393" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Lib.Gen.Anarkis.Create.Passenger" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="1419" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="110" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="20" />
+					<sval type="int" val="4" />
+					<sval type="int" val="80" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1421" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="110" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="20" />
+					<sval type="int" val="4" />
+					<sval type="int" val="80" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1423" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="110" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="20" />
+					<sval type="int" val="4" />
+					<sval type="int" val="80" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1422" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="110" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="20" />
+					<sval type="int" val="4" />
+					<sval type="int" val="80" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1424" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="array" size="2">
+				<sval type="array" size="2">
+					<sval type="int" val="21" />
+					<sval type="string" val="ship" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="16" />
+					<sval type="string" val="race" />
+				</sval>
+			</sval>
+			<sval type="array" size="3">
+				<sval type="array" size="2">
+					<sval type="int" val="2" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>

@@ -1,0 +1,723 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>Lib.Gen.Anarkis.Create.Factory</name>
+	<version>101</version>
+	<engineversion>44</engineversion>
+	<description>Lib - Create a custom factory</description>
+	<arguments>
+		<argument index="1" name="station.type" type="Var/Station Type" desc="station.type" />
+		<argument index="2" name="location" type="Value" desc="pos array + sector" />
+		<argument index="3" name="race" type="Var/Race" desc="race" />
+		<argument index="4" name="product" type="Var/Ware" desc="product" />
+		<argument index="5" name="ressource1" type="Var/Ware" desc="ressource 1" />
+		<argument index="6" name="ressource2" type="Var/Ware" desc="ressource 2" />
+	</arguments>
+	<sourcetext>
+		<line linenr="001" indent="">
+			<comment>* ===========================================</comment>
+		</line>
+		<line linenr="002" indent="">
+			<comment>* Build a factory according to params</comment>
+		</line>
+		<line linenr="003" indent="">
+			<comment>* ===========================================</comment>
+		</line>
+		<line linenr="004" indent="" />
+		<line linenr="005" indent="">
+			<var>$x</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$location</var>
+			<text>[</text>
+			<var>0</var>
+			<text>]</text>
+		</line>
+		<line linenr="006" indent="">
+			<var>$y</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$location</var>
+			<text>[</text>
+			<var>1</var>
+			<text>]</text>
+		</line>
+		<line linenr="007" indent="">
+			<var>$z</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$location</var>
+			<text>[</text>
+			<var>2</var>
+			<text>]</text>
+		</line>
+		<line linenr="008" indent="">
+			<var>$sector</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$location</var>
+			<text>[</text>
+			<var>3</var>
+			<text>]</text>
+		</line>
+		<line linenr="009" indent="">
+			<var>$select</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>create</text>
+			<text> </text>
+			<text>station</text>
+			<text>:</text>
+			<text> </text>
+			<text>type</text>
+			<text>=</text>
+			<var>$station.type</var>
+			<text> </text>
+			<text>owner</text>
+			<text>=</text>
+			<var>$race</var>
+			<text> </text>
+			<text>addto</text>
+			<text>=</text>
+			<var>$sector</var>
+			<text> </text>
+			<text>x</text>
+			<text>=</text>
+			<var>$x</var>
+			<text> </text>
+			<text>y</text>
+			<text>=</text>
+			<var>$y</var>
+			<text> </text>
+			<text>z</text>
+			<text>=</text>
+			<var>$z</var>
+		</line>
+		<line linenr="010" indent="">
+			<var>$select</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>add</text>
+			<text> </text>
+			<text>default</text>
+			<text> </text>
+			<text>wares</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>station</text>
+			<text>/</text>
+			<text>dock</text>
+		</line>
+		<line linenr="011" indent="">
+			<var>$v1</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$select</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>maximum</text>
+			<text> </text>
+			<text>shield</text>
+			<text> </text>
+			<text>strength</text>
+		</line>
+		<line linenr="012" indent="">
+			<var>$select</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<text>current</text>
+			<text> </text>
+			<text>shield</text>
+			<text> </text>
+			<text>strength</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<var>$v1</var>
+		</line>
+		<line linenr="013" indent="" />
+		<line linenr="014" indent="">
+			<var>$select</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>factory</text>
+			<text> </text>
+			<text>production</text>
+			<text> </text>
+			<text>task</text>
+			<text>:</text>
+			<text> </text>
+			<text>on</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+		</line>
+		<line linenr="015" indent="">
+			<var>$arr</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$select</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>tradeable</text>
+			<text> </text>
+			<text>ware</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>from</text>
+			<text> </text>
+			<text>station</text>
+		</line>
+		<line linenr="016" indent="">
+			<var>$v1</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$arr</var>
+		</line>
+		<line linenr="017" indent="&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$v1</var>
+		</line>
+		<line linenr="018" indent="&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$v1</var>
+		</line>
+		<line linenr="019" indent="&#160;">
+			<var>$v2</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$arr</var>
+			<text>[</text>
+			<var>$v1</var>
+			<text>]</text>
+		</line>
+		<line linenr="020" indent="&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$select</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>uses</text>
+			<text> </text>
+			<text>ware</text>
+			<text> </text>
+			<var>$v2</var>
+			<text> </text>
+			<text>as</text>
+			<text> </text>
+			<text>product</text>
+		</line>
+		<line linenr="021" indent="&#160;">
+			<var>$select</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>remove</text>
+			<text> </text>
+			<text>product</text>
+			<text> </text>
+			<text>from</text>
+			<text> </text>
+			<text>factory</text>
+			<text> </text>
+			<text>or</text>
+			<text> </text>
+			<text>dock</text>
+			<text>:</text>
+			<text> </text>
+			<var>$v2</var>
+		</line>
+		<line linenr="022" indent="&#160;&#160;">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$select</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>uses</text>
+			<text> </text>
+			<text>ware</text>
+			<text> </text>
+			<var>$v2</var>
+			<text> </text>
+			<text>as</text>
+			<text> </text>
+			<text>primary</text>
+			<text> </text>
+			<text>resource</text>
+		</line>
+		<line linenr="023" indent="&#160;">
+			<var>$select</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>remove</text>
+			<text> </text>
+			<text>primary</text>
+			<text> </text>
+			<text>resource</text>
+			<text> </text>
+			<text>from</text>
+			<text> </text>
+			<text>factory</text>
+			<text>:</text>
+			<text> </text>
+			<var>$v2</var>
+		</line>
+		<line linenr="024" indent="">
+			<text>else</text>
+		</line>
+		<line linenr="025" indent="">
+			<var>$select</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>remove</text>
+			<text> </text>
+			<text>second</text>
+			<text> </text>
+			<text>resource</text>
+			<text> </text>
+			<text>from</text>
+			<text> </text>
+			<text>factory</text>
+			<text>:</text>
+			<text> </text>
+			<var>$v2</var>
+		</line>
+		<line linenr="026" indent="&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="027" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="028" indent="&#160;">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$product</var>
+		</line>
+		<line linenr="029" indent="">
+			<var>$select</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>add</text>
+			<text> </text>
+			<text>product</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>factory</text>
+			<text> </text>
+			<text>or</text>
+			<text> </text>
+			<text>dock</text>
+			<text>:</text>
+			<text> </text>
+			<var>$product</var>
+		</line>
+		<line linenr="030" indent="&#160;">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$ressource1</var>
+		</line>
+		<line linenr="031" indent="">
+			<var>$select</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>add</text>
+			<text> </text>
+			<text>primary</text>
+			<text> </text>
+			<text>resource</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>factory</text>
+			<text>:</text>
+			<text> </text>
+			<var>$ressource1</var>
+		</line>
+		<line linenr="032" indent="">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$ressource2</var>
+		</line>
+		<line linenr="033" indent="">
+			<var>$select</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>add</text>
+			<text> </text>
+			<text>primary</text>
+			<text> </text>
+			<text>resource</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>factory</text>
+			<text>:</text>
+			<text> </text>
+			<var>$ressource2</var>
+		</line>
+		<line linenr="034" indent="">
+			<var>$select</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>factory</text>
+			<text> </text>
+			<text>production</text>
+			<text> </text>
+			<text>task</text>
+			<text>:</text>
+			<text> </text>
+			<text>on</text>
+			<text>=</text>
+			<var>[TRUE]</var>
+		</line>
+		<line linenr="035" indent="" />
+		<line linenr="036" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>$select</var>
+		</line>
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="Lib.Gen.Anarkis.Create.Factory" />
+			<sval type="int" val="44" />
+			<sval type="string" val="Lib - Create a custom factory" />
+			<sval type="int" val="101" />
+			<sval type="int" val="0" />
+			<sval type="array" size="14">
+				<sval type="string" val="station.type" />
+				<sval type="string" val="location" />
+				<sval type="string" val="race" />
+				<sval type="string" val="product" />
+				<sval type="string" val="ressource1" />
+				<sval type="string" val="ressource2" />
+				<sval type="string" val="x" />
+				<sval type="string" val="y" />
+				<sval type="string" val="z" />
+				<sval type="string" val="sector" />
+				<sval type="string" val="select" />
+				<sval type="string" val="v1" />
+				<sval type="string" val="arr" />
+				<sval type="string" val="v2" />
+			</sval>
+			<sval type="array" size="30">
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="8" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="14">
+					<sval type="int" val="747" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="1371" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="715" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="11" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1048" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1148" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1041" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="12" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610607095" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="11" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="13" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1165" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="-1610608381" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="781" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="21" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="635" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="-1610607611" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="782" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="21" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="783" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="11" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610606584" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="750" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610606072" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="751" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610605560" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="751" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1148" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+				</sval>
+			</sval>
+			<sval type="array" size="6">
+				<sval type="array" size="2">
+					<sval type="int" val="17" />
+					<sval type="string" val="station.type" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="string" val="pos array + sector" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="16" />
+					<sval type="string" val="race" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="13" />
+					<sval type="string" val="product" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="13" />
+					<sval type="string" val="ressource 1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="13" />
+					<sval type="string" val="ressource 2" />
+				</sval>
+			</sval>
+			<sval type="array" size="9">
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="===========================================" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Build a factory according to params" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="===========================================" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="0" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="8" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="20" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="21" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="22" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="29" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>
